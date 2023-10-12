@@ -7,7 +7,7 @@ public class DataProvider {
         return new Object[][]{
                 {0.3, 3.149},
                 {2.3, 13.89},
-                {2.6, -4.151}
+                {2.8, -2.453}
         };
     }
 
@@ -25,8 +25,10 @@ public class DataProvider {
         return new Object[][]{
                 {50, 3.149},
                 {1050, 13.89},
-                {1300, -4.151}
+                {1300, -2.453}
         };
     }
+
+
 
 }
