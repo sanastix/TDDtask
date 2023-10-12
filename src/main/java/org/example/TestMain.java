@@ -49,7 +49,6 @@ public class TestMain {
         double step = 0.002;
         double[] x = main.fillX(start, end, step);
         double[] y = main.fillY(x);
-        Arrays.sort(y);
         double expected = 16.683;
         Assert.assertEquals(main.biggestY(y), expected, EPS);
     }
@@ -61,7 +60,6 @@ public class TestMain {
         double step = 0.002;
         double[] x = main.fillX(start, end, step);
         double[] y = main.fillY(x);
-        Arrays.sort(y);
         double expected = -7.692;
         Assert.assertEquals(main.leastY(y), expected, EPS);
     }
@@ -86,6 +84,34 @@ public class TestMain {
         double[] y = main.fillY(x);
         double expected = 10.449;
         Assert.assertEquals(main.yArithmeticMean(y), expected, EPS);
+    }
+
+    @Test
+    public void testBiggestYAndItsX(){
+        double start = 0.2;
+        double end = 2.8;
+        double step = 0.002;
+        double[] x = main.fillX(start, end, step);
+        double[] y = main.fillY(x);
+        String actual = main.biggestYAndItsX(y, x);
+        Arrays.sort(y);
+        double biggestY = y[y.length - 1];
+        String expected = String.format("Biggest y = %.3f; Its x =  %.3f", 16.683, x[Arrays.binarySearch(y, biggestY)]);
+        Assert.assertEquals(actual, expected);
+    }
+
+    @Test
+    public void testLeastYAndItsX(){
+        double start = 0.2;
+        double end = 2.8;
+        double step = 0.002;
+        double[] x = main.fillX(start, end, step);
+        double[] y = main.fillY(x);
+        String actual = main.leastYAndItsX(y, x);
+        Arrays.sort(y);
+        double leastY = y[0];
+        String expected = String.format("Least y = %.3f; Its x =  %.3f", -7.692, x[Arrays.binarySearch(y, leastY)]);
+        Assert.assertEquals(actual, expected);
     }
 
 }

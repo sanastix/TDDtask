@@ -5,8 +5,12 @@ import java.util.stream.IntStream;
 
 public class Main {
 
-    private double a = 2.3;
-    private double EPS = 1e-3;
+    public static void main(String[] args) {
+
+    }
+
+    private final double a = 2.3;
+    private final double EPS = 1e-3;
 
     public double function(double x){
 
@@ -52,6 +56,18 @@ public class Main {
 
     public double yArithmeticMean(double[] yArr){
         return yArraySum(yArr) / yArr.length;
+    }
+
+    public String biggestYAndItsX(double[] yArr, double[] xArr){
+        double y = biggestY(yArr);
+        double x = xArr[Arrays.binarySearch(yArr, y)];
+        return String.format("Biggest y = %.3f; Its x =  %.3f", y, x);
+    }
+
+    public String leastYAndItsX(double[] yArr, double[] xArr){
+        double y = leastY(yArr);
+        double x = xArr[Arrays.binarySearch(yArr, y)];
+        return String.format("Least y = %.3f; Its x =  %.3f", y, x);
     }
 
 }
